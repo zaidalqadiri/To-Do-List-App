@@ -19,7 +19,7 @@ function Tasks() {
 
     }
 
-    function handleIncompletedTask() {
+    function handleIncompletedTask(index) {
 
     }
 
