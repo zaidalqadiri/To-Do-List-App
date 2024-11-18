@@ -30,7 +30,7 @@ function Tasks() {
                     {tasks.map((task, index) => (<li key={index}>
                                                 {task}
                                                 <button id="completed-button" onClick={handleCompletedTask}>✅</button>
-                                                <button id="incompletebutton" onClick={handleIncompletedTask}>❌</button>
+                                                <button id="incompleted-button" onClick={handleIncompletedTask}>❌</button>
                                                 <button id="remove-button" onClick={() => handleRemoveTask(index)}>Remove</button>
                                                 </li>
                                             ))} 
