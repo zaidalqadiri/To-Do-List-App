@@ -11,8 +11,8 @@ function Tasks() {
         setTasks(t => [...t, newTask]);
     }
 
-    function handleRemoveTask() {
-
+    function handleRemoveTask(index) {
+        setTasks(t => t.filter((_, i) => i !== index));
     }
 
     function handleCompletedTask() {
@@ -25,9 +25,15 @@ function Tasks() {
 
     return(<div>
                 <input type="text" placeholder="Enter a task" id="textInput"/>
-                <button onClick={handleAddTask}>Add</button>
+                <button id='add-button' onClick={handleAddTask}>Add</button>
                 <ul>
-                    {tasks.map((task, index) => <li key={index}>{task}</li>)}
+                    {tasks.map((task, index) => (<li key={index}>
+                                                {task}
+                                                <button id="completed-button" onClick={handleCompletedTask}>✅</button>
+                                                <button id="incompletebutton" onClick={handleIncompletedTask}>❌</button>
+                                                <button id="remove-button" onClick={() => handleRemoveTask(index)}>Remove</button>
+                                                </li>
+                                            ))} 
                 </ul>
     
             </div>)
