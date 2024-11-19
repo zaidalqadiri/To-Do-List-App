@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 function Tasks() {
     
-    const [tasks, setTasks] = useState(["Walk dog", "Grocery Shopping"]);
+    const [tasks, setTasks] = useState([]);
     const [completedTasks, setCompletedTasks] = useState([]);
 
     function handleAddTask() {
@@ -21,7 +21,7 @@ function Tasks() {
     }
 
     function handleIncompletedTask(index) {
-        
+        setCompletedTasks(ct => ct.filter(i => i !== index))
     }
 
     return(<div>
@@ -32,11 +32,11 @@ function Tasks() {
                                                 style={{backgroundColor: completedTasks.includes(index) ? "#31cd2f" : "white",}}>
                                                 {task}
                                                 <button id="completed-button" onClick={() => handleCompletedTask(index)}>✅</button>
-                                                <button id="incompleted-button" onClick={handleIncompletedTask}>❌</button>
+                                                <button id="incompleted-button" onClick={() => handleIncompletedTask(index)}>❌</button>
                                                 <button id="remove-button" onClick={() => handleRemoveTask(index)}>Remove</button>
                                                 </li>))} 
                 </ul>
-            </div>)
+            </div>);
 }
 
 export default Tasks
