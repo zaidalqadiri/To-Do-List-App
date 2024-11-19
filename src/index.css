@@ -16,24 +16,41 @@ input, #add-button {
   font-size: 1.4rem;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  margin: 20px auto; /* Center the list horizontally */
+}
 
 li {
   list-style-type: none;
   margin: 10px;
   padding: 20px;
-  background-color: rgb(255, 255, 255);
   color: black;
   border: 5px solid rgb(79, 73, 73);
   border-radius: 10px;
+  display: flex;
+  justify-content: space-between; /* space between task text and buttons */
+  align-items: center; /* Center-align text and buttons vertically */
+  width: 100%; /* Ensure all list items have the same width */
+  box-sizing: border-box; /* Include border and padding in width */
+}
+
+li span {
+  flex-grow: 1; /* Allow the task text to take up available space */
+}
+
+li button {
+  margin-left: 10px;
+  padding: 7px;
+  font-size: 1rem;
 }
 
 #completed-button, #incompleted-button, #remove-button {
   margin-left: 10px;
-  padding: 7px
 }
 
-#remove-button {
-  margin-left: 50px;
+button {
+  cursor: pointer;
 }
-
-

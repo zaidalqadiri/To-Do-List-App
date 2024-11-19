@@ -30,7 +30,7 @@ function Tasks() {
                 <ul>
                     {tasks.map((task, index) => (<li key={index}
                                                 style={{backgroundColor: completedTasks.includes(index) ? "#31cd2f" : "white",}}>
-                                                {task}
+                                                <span>{task}</span>
                                                 <button id="completed-button" onClick={() => handleCompletedTask(index)}>✅</button>
                                                 <button id="incompleted-button" onClick={() => handleIncompletedTask(index)}>❌</button>
                                                 <button id="remove-button" onClick={() => handleRemoveTask(index)}>Remove</button>
