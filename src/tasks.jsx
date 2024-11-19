@@ -25,6 +25,7 @@ function Tasks() {
     }
 
     return(<div>
+                <h1>To-Do-List</h1>
                 <input type="text" placeholder="Enter a task" id="textInput"/>
                 <button id='add-button' onClick={handleAddTask}>Add</button>
                 <ul>
