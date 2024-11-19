@@ -7,9 +7,11 @@ function Tasks() {
 
     function handleAddTask() {
         const newTask = document.getElementById("textInput").value;
-        document.getElementById("textInput").value = "";
+        if (newTask.trim() !== "") {  // Prevent adding an empty task box
+            document.getElementById("textInput").value = "";
 
-        setTasks(t => [...t, newTask]);
+            setTasks(t => [...t, newTask]);
+        }
     }
 
     function handleRemoveTask(index) {
@@ -26,8 +28,10 @@ function Tasks() {
 
     return(<div>
                 <h1>To-Do-List</h1>
-                <input type="text" placeholder="Enter a task" id="textInput"/>
-                <button id='add-button' onClick={handleAddTask}>Add</button>
+                <div id="input-container">
+                    <input type="text" placeholder="Enter a task" id="textInput"/>
+                    <button id='add-button' onClick={handleAddTask}>Add</button>
+                </div>
                 <ul>
                     {tasks.map((task, index) => (<li key={index}
                                                 style={{backgroundColor: completedTasks.includes(index) ? "#31cd2f" : "white",}}>

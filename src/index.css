@@ -2,14 +2,16 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
-  display: flex;
-  justify-content: center;
   text-align: center;
 }
 
 h1 {
   font-size: 3.8rem;
+}
+
+#input-container {
+  display: flex;
+  justify-content: center;
 }
 
 input, #add-button {
@@ -38,7 +40,7 @@ li {
 }
 
 li span {
-  flex-grow: 1; /* Allow the task text to take up available space */
+  flex: 1; /* Allow the task text to take up available space */
   text-align: left; /* Align text to the left */
 }
 
