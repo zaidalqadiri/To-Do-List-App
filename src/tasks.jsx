@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 function Tasks() {
     
     const [tasks, setTasks] = useState(["Walk dog", "Grocery Shopping"]);
+    const [completedTasks, setCompletedTasks] = useState([]);
 
     function handleAddTask() {
         const newTask = document.getElementById("textInput").value;
@@ -15,29 +16,27 @@ function Tasks() {
         setTasks(t => t.filter((_, i) => i !== index));
     }
 
-    function handleCompletedTask() {
-
+    function handleCompletedTask(index) {
+        setCompletedTasks(ct => [...ct, index])
     }
 
     function handleIncompletedTask(index) {
-
+        
     }
 
     return(<div>
                 <input type="text" placeholder="Enter a task" id="textInput"/>
                 <button id='add-button' onClick={handleAddTask}>Add</button>
                 <ul>
-                    {tasks.map((task, index) => (<li key={index}>
+                    {tasks.map((task, index) => (<li key={index}
+                                                style={{backgroundColor: completedTasks.includes(index) ? "#31cd2f" : "white",}}>
                                                 {task}
-                                                <button id="completed-button" onClick={handleCompletedTask}>✅</button>
+                                                <button id="completed-button" onClick={() => handleCompletedTask(index)}>✅</button>
                                                 <button id="incompleted-button" onClick={handleIncompletedTask}>❌</button>
                                                 <button id="remove-button" onClick={() => handleRemoveTask(index)}>Remove</button>
-                                                </li>
-                                            ))} 
+                                                </li>))} 
                 </ul>
-    
             </div>)
-
 }
 
 export default Tasks
